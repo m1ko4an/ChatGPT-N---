@@ -10,7 +10,7 @@
 
     <abstract>
       <para>
-        Документация описывает архитектуру и подсистемы платформы ChatGPT-N.
+        Документация описывает архитектуру и основные подсистемы платформы ChatGPT-N.
       </para>
     </abstract>
   </bookinfo>
@@ -20,45 +20,147 @@
 
     <para>
       ChatGPT-N представляет собой интеллектуальную платформу,
-      объединяющую чат-ботов, генерацию кода,
-      генерацию изображений и обработку документов.
+      объединяющую текстовых чат-ботов, генерацию кода,
+      обработку естественного языка, генерацию изображений
+      и систему хранения данных.
     </para>
 
     <para>
-      Архитектура проекта разделена на независимые подсистемы,
-      каждая из которых отвечает за отдельную функциональность.
+      Архитектура проекта разделена на независимые подсистемы:
+      пользовательский интерфейс, интеллектуальные модули,
+      генерацию медиа-контента и подсистемы безопасности.
     </para>
+
+    <para>
+      Каждая подсистема реализована в виде отдельных модулей Python
+      и снабжена докблок-комментариями для автоматической генерации
+      технической документации.
+    </para>
+  </chapter>
+
+  <chapter id="use-cases">
+    <title>Сценарии использования</title>
+
+    <section id="use-case-1">
+      <title>Сценарий 1: Работа с чат-ботом</title>
+
+      <para>
+        Пользователь вводит текстовый запрос в интерфейсе платформы.
+        Подсистема обработки естественного языка анализирует запрос,
+        после чего чат-бот формирует ответ.
+      </para>
+
+      <programlisting language="python">
+from chatbot_engine import ChatBotEngine
+
+bot = ChatBotEngine()
+response = bot.generate_response("Привет")
+print(response)
+      </programlisting>
+    </section>
+
+    <section id="use-case-2">
+      <title>Сценарий 2: Генерация программного кода</title>
+
+      <para>
+        Пользователь вводит описание задачи,
+        а подсистема генерации кода автоматически
+        формирует программный код.
+      </para>
+
+      <programlisting language="python">
+from code_generator import CodeGenerator
+
+generator = CodeGenerator()
+code = generator.generate_code("Создай функцию сортировки")
+print(code)
+      </programlisting>
+    </section>
+
+    <section id="use-case-3">
+      <title>Сценарий 3: Генерация изображений</title>
+
+      <para>
+        Пользователь вводит текстовое описание изображения,
+        после чего система формирует графическое изображение.
+      </para>
+
+      <programlisting language="python">
+from image_generator import ImageGenerator
+
+generator = ImageGenerator()
+image = generator.create_image("Космический город будущего")
+print(image)
+      </programlisting>
+    </section>
   </chapter>
 
   <chapter id="api-reference">
     <title>Справочник API</title>
 
-    <section id="ui-module">
+    <section id="api-ui">
       <title>Подсистема пользовательского интерфейса</title>
+
       <para>
-        Обеспечивает взаимодействие пользователя с системой.
+        Обеспечивает взаимодействие пользователя с платформой.
       </para>
+
+      <section id="api-open-window">
+        <title>Метод open_window()</title>
+
+        <para>
+          Открывает главное окно приложения.
+        </para>
+      </section>
     </section>
 
-    <section id="chatbot-module">
+    <section id="api-chatbot">
       <title>Подсистема текстовых чат-ботов</title>
+
       <para>
         Выполняет обработку запросов и генерацию ответов.
       </para>
+
+      <section id="api-generate-response">
+        <title>Метод generate_response()</title>
+
+        <para>
+          Генерирует ответ на пользовательский запрос.
+        </para>
+      </section>
     </section>
 
-    <section id="image-module">
+    <section id="api-image-generator">
       <title>Подсистема генерации изображений</title>
+
       <para>
-        Создает изображения на основе текстовых запросов.
+        Создает изображения по текстовым описаниям.
       </para>
+
+      <section id="api-create-image">
+        <title>Метод create_image()</title>
+
+        <para>
+          Формирует изображение на основе текстового запроса.
+        </para>
+      </section>
     </section>
 
-    <section id="security-module">
+    <section id="api-security">
       <title>Подсистема безопасности</title>
+
       <para>
-        Обеспечивает защиту данных пользователей.
+        Отвечает за авторизацию пользователей
+        и защиту данных платформы.
       </para>
+
+      <section id="api-authorize-user">
+        <title>Метод authorize_user()</title>
+
+        <para>
+          Выполняет проверку и авторизацию пользователя.
+        </para>
+      </section>
     </section>
 
   </chapter>
